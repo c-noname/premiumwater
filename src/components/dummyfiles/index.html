@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title>Hello Vue!</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>
+			Ask a yes/no question:
+			<input v-model="question">
+		</p>
+		<p>{{ answer }}</p>
+		<div class="static" :class="{ active: isActive, 'text-danger': hasError }">hhhhhh</div>
+		<div  :style="{ color: activeColor, fontSize: fontSize + 'px' }">KAKA</div>
+		<div >{{ this.fullName }}</div>
+		<table>
+			<tr>
+				<td> <label > Product Id </label></td>
+				<td> <input   ref="proid"> </td>
+			</tr>
+			<tr>
+				<td> <label > Product Name </label></td>
+				<td> <input   ref="proname"> </td>
+			</tr>
+			<tr>
+				<td> <label > Product Qty </label></td>
+				<td> <input   ref="proqty"> </td>
+			</tr>
+			<tr>
+				<td> <label > Product Price </label></td>
+				<td> <input   ref="proprice"> </td>
+			</tr>
+			<tr>
+				<td> <label > Product Type </label></td>
+				<td>
+					<select  ref="protype" @change="changeType($event)">
+<!--						<option v-bind:value="{ number: 123 }">123</option>-->
+						<option disabled value="">Select Product Type</option>
+						<option>A</option>
+						<option>B</option>
+						<option>C</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="one">Product Store</label></td>
+				<td>
+					<input type="radio" id="one" value="Warehouse A" v-model="picked" ref="prowh">Warehouse A
+					<input type="radio" id="two" value="Warehouse B" v-model="picked"  ref="prowh">Warehouse B
+				</td>
+			</tr>
+			<tr>
+				<td> <label for="date"> ImportDate </label></td>
+				<td> <input  id="date" type="date" ref="proimdate" > </td>
+			</tr>
+			<tr>
+				<td>  <label for="valid">ValidDate</label></td>
+				<td>  <input type="checkbox" id="valid" value="valid" ref="proexpired">Expired</td>
+			</tr>
+
+		</table>
+
+		<br><br>
+		<button @click="retrieveData">Import Product</button>
+		<br><br>
+		<table >
+			<tr>
+				<th>Product ID</th>
+				<th>Product Name</th>
+				<th>Quantity</th>
+				<th>Price</th>
+				<th>Type</th>
+				<th>Import Date</th>
+				<th>WareHouse</th>
+				<th>Expired</th>
+			</tr>
+			<tr v-for="(pro,index) in productList" >
+				<td><input  v-model="pro.id" class="displayRow" ></td>
+				<td><input  v-model="pro.name" ></td>
+				<td><input  v-model="pro.qty" ></td>
+				<td><input  v-model="pro.price"></td>
+				<td><input  v-model="pro.type"></td>
+				<td><input  v-model="pro.importdate" format="yyyy-MM-dd"></td>
+				<td><input  v-model="pro.warehouse"></td>
+				<td><input  v-model="pro.expired"></td>
+
+			</tr>
+		</table>
+	</div>
+<script src="index.js"></script>
+</body>
+</html>

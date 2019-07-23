@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <title>Hello Vue!</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="app">
+        <button @click="warn('Form cannot be submitted yet.', $event)">
+            Submit
+        </button>
+        <APP-TEM></APP-TEM>
+<!--        &lt;!&ndash; the click event's propagation will be stopped &ndash;&gt;-->
+<!--        <a :click.stop="doThis"></a>-->
+
+<!--        &lt;!&ndash; the submit event will no longer reload the page &ndash;&gt;-->
+<!--        <form :submit.prevent="onSubmit"></form>-->
+
+<!--        &lt;!&ndash; modifiers can be chained &ndash;&gt;-->
+<!--        <a :click.stop.prevent="doThat"></a>-->
+
+<!--        &lt;!&ndash; just the modifier &ndash;&gt;-->
+<!--        <form :submit.prevent></form>-->
+
+<!--        &lt;!&ndash; use capture mode when adding the event listener &ndash;&gt;-->
+<!--        &lt;!&ndash; i.e. an event targeting an inner element is handled here before being handled by that element &ndash;&gt;-->
+<!--        <div :click.capture="doThis">...</div>-->
+
+<!--        &lt;!&ndash; only trigger handler if event.target is the element itself &ndash;&gt;-->
+<!--        &lt;!&ndash; i.e. not from a child element &ndash;&gt;-->
+<!--        <div :click.self="doThat">...</div>-->
+    </div>
+    <script src="eventHandler.js"></script>
+</body>
+</html>
